@@ -16,6 +16,22 @@
                 <p>Felicidad : <span th:text="${pokemon.base_happiness}"></span></p>
                 <p>Ratio de captura : <span th:text="${pokemon.capture_rate}"></span></p>
                 <p>Orden : <span th:text="${pokemon.order}"></span></p>
+                <!---->
+                <div th:if="@{${pokemon.evolution_chain} != null}">
+                    <a th:href="@{/pokemon/evolution/{id} (id=${#strings.substringAfter(pokemon.evolution_chain.url,'https://pokeapi.co/api/v2/evolution-chain/')})}">Cadena de evolucion</a>
+                </div>
+                <div th:if="@{${pokemon.evolution_chain} == null}">
+                    <p>No tiene una cadena de evolucion</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mt-5 mb-5">
+                <a class="btn btn-primary" th:href="@{/pokemon/listado}">Volver al listado</a>
             </div>
         </div>
     </div>

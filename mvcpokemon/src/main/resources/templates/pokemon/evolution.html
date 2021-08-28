@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evolucion</title>
+</head>
+<body>
+    <h1>Evolucion</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mt-5 mb-5">
+                <p>Orden de evolucion: <span th:text="${evolution.id}"></span></p>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mt-5 mb-5">
+                <a class="btn btn-primary" th:href="@{/pokemon/listado}">Volver al listado</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

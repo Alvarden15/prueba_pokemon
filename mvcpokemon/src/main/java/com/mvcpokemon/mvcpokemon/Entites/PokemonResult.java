@@ -11,7 +11,14 @@ public class PokemonResult
     private int gender_rate;
     private String name;
     private int order;
+    private EvolutionSummary evolution_chain;
     
+    public EvolutionSummary getEvolution_chain() {
+        return evolution_chain;
+    }
+    public void setEvolution_chain(EvolutionSummary evolution_chain) {
+        this.evolution_chain = evolution_chain;
+    }
     public int getOrder() {
         return order;
     }
@@ -51,3 +58,4 @@ public class PokemonResult
 
     
 }
+
