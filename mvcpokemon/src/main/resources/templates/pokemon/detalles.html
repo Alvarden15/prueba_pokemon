@@ -8,6 +8,13 @@
 </head>
 <body>
     <h1>Detalles</h1>
-    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mt-5 mb-5">
+                <p>Nombre : <span th:text="${pokemon.name}"></span></p>
+                <p>Orden : <span th:text="${pokemon.order}"></span></p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
