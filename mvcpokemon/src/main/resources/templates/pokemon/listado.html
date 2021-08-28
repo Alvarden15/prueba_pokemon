@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Pokemones</title>
+</head>
+<body>
+    <h1>Listado de pokemones</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mt-5 mb-5">
+                <table id="pokemones" class="table table-bordered table responsive" style="width:100%">
+                    <thead>
+                        <tr>
+                            <td>Nombre</td>
+                            <td>Link</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="item: ${pokemones.results}">
+                            <td th:text="${item.name}"></td>
+                            <td><a th:href="${item.url}">Datos de <span th:text="${item.name}"></span></a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>
