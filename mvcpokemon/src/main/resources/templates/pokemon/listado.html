@@ -21,7 +21,7 @@
                     <tbody>
                         <tr th:each="item: ${pokemones.results}">
                             <td th:text="${item.name}"></td>
-                            <td><a th:href="${item.url}">Datos de <span th:text="${item.name}"></span></a></td>
+                            <td><a th:href="@{/pokemon/detalles/{id} (id=${#strings.substringAfter(item.url,'https://pokeapi.co/api/v2/pokemon-species/')})}">Datos de <span th:text="${item.name}"></span></a></td>
                         </tr>
                     </tbody>
                 </table>
