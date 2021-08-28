@@ -28,9 +28,17 @@
             </div>
             
         </div>
+        
+    </div>
+    <br>
+    <br>
+    <div class="container">
         <div class="row">
             <div class="col-lg-10 mt-5 mb-5">
-
+                <a class="btn btn-primary" th:href="@{/pokemon/listado?page={id} (id=${next})}">Siguiente</a>
+            </div>
+            <div class="col-lg-10 mt-5 mb-5" th:if="@{${previous} != null}">
+                <a th:href="@{/pokemon/listado?page={id} (id=${previous})}">Anterior</a>
             </div>
         </div>
     </div>
