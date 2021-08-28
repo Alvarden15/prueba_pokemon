@@ -26,30 +26,28 @@ public class PokemonController {
 
 
     @GetMapping("pokemon/listado")
-    public String listado(Model model, @RequestParam(required = false, name = "offset", defaultValue = "20") String offset){
+    public String listado(Model model, @RequestParam(required = false, name = "page", defaultValue = "1") String page){
+        int convertedPage= 1;
+        try{
+            convertedPage = Integer.parseInt(page);
+        }catch(Exception e){
+            convertedPage = 1;
+        }
+        
+        int offset = convertedPage * 20;
         ResponseEntity<ListPokemon> response = restTemplate
-            .getForEntity("https://pokeapi.co/api/v2/pokemon-species?offset="+offset, ListPokemon.class);
+            .getForEntity("https://pokeapi.co/api/v2/pokemon-species?offset="+ offset, ListPokemon.class);
         ListPokemon list = response.getBody();
         model.addAttribute("pokemones", list);
-        /*
-        if(list.getNext()!=null)
-        {
-            
-            String localNext = list.getNext();
-            String next = localNext.substring(localNext.lastIndexOf("?offset="),2);
-            //model.addAttribute("next", next);
-        }
-
-        if(list.getPrevious()!=null)
-        {
-            String localPrevious = list.getPrevious();
-            String next = localPrevious.substring(localPrevious.lastIndexOf("?offset="),2);
-            
-            model.addAttribute("previous", list);
-        }
-        */
         
+        if(convertedPage > 1)
+        {
+            model.addAttribute("previous", convertedPage - 1);
+        }else{
+            model.addAttribute("previous", null);
+        }
 
+        model.addAttribute("next", convertedPage + 1);
         return "pokemon/listado";
     }
 
